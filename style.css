@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap");
+:root {
+  --light-red: hsl(0, 100%, 67%);
+  --orangy-yellow: hsl(39, 100%, 56%);
+  --green-teal: hsl(166, 100%, 37%);
+  --cobalt-blue: hsl(234, 85%, 45%);
+
+  --light-slate-blue: hsl(252, 100%, 67%);
+  --light-royal-blue: hsl(241, 81%, 54%);
+  --violet-blue: hsla(256, 72%, 46%, 1);
+  --persian-blue: hsla(241, 72%, 46%, 0);
+
+  --white: hsl(0, 0%, 100%);
+  --pale-blue: hsl(221, 100%, 96%);
+  --light-lavender: hsl(241, 100%, 89%);
+  --dark-gray-blue: hsl(224, 30%, 27%);
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  background: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: "Hanken Grotesk", sans-serif;
+}
+main {
+  display: flex;
+  -webkit-box-shadow: 5px 10px 30px -8px rgba(0, 188, 144, 0.2);
+  -moz-box-shadow: 5px 10px 30px -8px rgba(0, 188, 144, 0.2);
+  box-shadow: 5px 10px 30px -8px rgba(0, 188, 144, 0.2);
+  border-radius: 10px;
+}
+.left,
+.right {
+  flex-basis: 50%;
+  padding: 30px;
+}
+.left {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  background: linear-gradient(
+    to bottom,
+    var(--light-slate-blue),
+    var(--light-royal-blue)
+  );
+  border-radius: 20px;
+}
+.left h4 {
+  color: var(--white);
+}
+.score-box {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(to top, hsl(246, 86%, 59%), hsl(255, 71%, 46%));
+}
+.score-box div {
+  font-size: 10 px;
+  color: var(--white);
+}
+.score-box span {
+  font-size: 60px;
+  color: var(--pale-blue);
+  font-weight: 600;
+}
+.left h3 {
+  font-size: 25px;
+  color: var(--pale-blue);
+}
+.left p {
+  font-size: 18px;
+  text-align: center;
+  color: var(--white);
+}
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.summary-title {
+  text-align: left;
+  color: var(--dark-gray-blue);
+}
+.categories {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.right .categories > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 40px);
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.right .categories > div:nth-child(1) {
+  color: var(--light-red);
+  background: hsla(0, 100%, 67%, 10%);
+}
+.right .categories > div:nth-child(2) {
+  color: var(--orangy-yellow);
+  background: hsla(39, 100%, 56%, 10%);
+}
+.right .categories > div:nth-child(3) {
+  color: var(--green-teal);
+  background: hsla(166, 100%, 37%, 10%);
+}
+.right .categories > div:nth-child(4) {
+  color: var(--light-royal-blue);
+  background: hsla(256, 72%, 46%, 10%);
+}
+.category {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+.score {
+  color: var(--light-lavender);
+}
+.score > span {
+  color: var(--dark-gray-blue);
+  font-weight: 600;
+}
+.continue {
+  width: 100%;
+  border: none;
+  outline: none;
+  margin-top: 25px;
+  background: transparent;
+  padding: 15px 30px;
+  border-radius: 50px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+}
+.continue::after {
+  content: "";
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--dark-gray-blue);
+  z-index: -1;
+  border-radius: 50px;
+  transition: 0.4s;
+}
+.continue::before {
+  content: "";
+  top: 0;
+  left: -10px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    hsl(251, 65%, 58%),
+    hsl(242, 58%, 47%)
+  );
+  z-index: -1;
+  border-radius: 50px;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.continue:hover::after {
+  opacity: 0;
+  left: -20px;
+}
+.continue:hover::before {
+  opacity: 1;
+  left: 0;
+}
+@media only screen and (max-width: 600px) {
+  main {
+    height: 100vh;
+    flex-direction: column;
+  }
+  .left {
+    border-radius: 0px 0 20px 20px;
+  }
+  body {
+    height: max-content;
+    overflow: auto;
+  }
+}
